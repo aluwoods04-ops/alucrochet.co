@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cozy Knot Crochet</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#F1CECA;
+      color:#2A160C;
+      line-height:1.6;
+    }
+
+    header{
+      background:#2A160C;
+      color:white;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      font-family:'DM Serif Display', serif;
+      font-size:2rem;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:25px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#F1CECA;
+    }
+
+    .hero{
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:50px 8%;
+      background:
+      linear-gradient(rgba(42,22,12,0.3), rgba(42,22,12,0.3)),
+      url('https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1400&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      color:white;
+    }
+
+    .hero-content{
+      max-width:700px;
+    }
+
+    .hero h1{
+      font-family:'DM Serif Display', serif;
+      font-size:4rem;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:1.2rem;
+      margin-bottom:35px;
+    }
+
+    .btn{
+      display:inline-block;
+      background:#7A4732;
+      color:white;
+      padding:14px 30px;
+      border-radius:40px;
+      text-decoration:none;
+      transition:0.3s;
+      margin:10px;
+    }
+
+    .btn:hover{
+      background:#483216;
+      transform:translateY(-2px);
+    }
+
+    section{
+      padding:90px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-family:'DM Serif Display', serif;
+      font-size:2.7rem;
+      margin-bottom:10px;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:white;
+      border-radius:25px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .card h3{
+      margin-bottom:10px;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+      gap:50px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:30px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .reviews{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .review-card{
+      background:white;
+      padding:30px;
+      border-radius:25px;
+      box-shadow:0 10px 20px rgba(0,0,0,0.06);
+    }
+
+    .faq{
+      max-width:800px;
+      margin:auto;
+    }
+
+    .faq-item{
+      background:white;
+      padding:20px;
+      border-radius:20px;
+      margin-bottom:15px;
+    }
+
+    .contact{
+      text-align:center;
+      background:#7D5939;
+      color:white;
+      border-radius:35px;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#2A160C;
+      color:white;
+      margin-top:60px;
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:2.8rem;
+      }
+
+      nav{
+        display:none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Cozy Knot Crochet</div>
+
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Handmade Crochet Creations Made With Love</h1>
+
+      <p>
+        Cozy plushies, custom crochet pieces, and handmade treasures crafted carefully for every customer.
+      </p>
+
+      <a href="#shop" class="btn">Shop Collection</a>
+      <a href="#contact" class="btn">Custom Orders</a>
+    </div>
+  </section>
+
+  <section id="shop">
+    <div class="section-title">
+      <h2>Featured Creations</h2>
+      <p>Soft handmade crochet pieces designed to bring comfort and joy.</p>
+    </div>
+
+    <div class="products">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=1200&auto=format&fit=crop">
+        <div class="card-content">
+          <h3>Bunny Plushies</h3>
+          <p>Soft customizable crochet bunny plushies available in different colors.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop">
+        <div class="card-content">
+          <h3>Crochet Bags</h3>
+          <p>Stylish handmade bags perfect for everyday wear.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop">
+        <div class="card-content">
+          <h3>Custom Orders</h3>
+          <p>Personalized crochet creations made specially for you.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about">
+
+    <div class="about">
+
+      <div>
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+      </div>
+
+      <div>
+        <div class="section-title" style="text-align:left;">
+          <h2>About The Maker</h2>
+        </div>
+
+        <p>
+          Every piece is handmade with care, creativity, and warmth. Cozy Knot Crochet was created from a love for soft textures, comforting designs, and meaningful handmade artistry.
+        </p>
+
+        <br>
+
+        <p>
+          From plushies to custom crochet gifts, each creation is designed to feel special and personal.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="reviews">
+
+    <div class="section-title">
+      <h2>Customer Love</h2>
+    </div>
+
+    <div class="reviews">
+
+      <div class="review-card">
+        <p>
+          “The plushie was even prettier in person. You can really see the care put into it.”
+        </p>
+      </div>
+
+      <div class="review-card">
+        <p>
+          “Beautiful quality and such soft yarn. I’m obsessed with my custom order.”
+        </p>
+      </div>
+
+      <div class="review-card">
+        <p>
+          “Fast communication and the cutest crochet work ever.”
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="faq">
+
+    <div class="section-title">
+      <h2>FAQ</h2>
+    </div>
+
+    <div class="faq">
+
+      <div class="faq-item">
+        <h3>How long do custom orders take?</h3>
+        <p>Usually between 5–14 days depending on complexity and queue size.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do you ship nationwide?</h3>
+        <p>Yes! Delivery options can be arranged during ordering.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I request custom colors?</h3>
+        <p>Absolutely. Most plushies and pieces can be customized.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="contact">
+
+    <div class="contact">
+
+      <div class="section-title">
+        <h2>Place An Order</h2>
+      </div>
+
+      <p>
+        Ready to order or request a custom piece?
+      </p>
+
+      <br>
+
+      <a href="https://wa.me/" class="btn">WhatsApp</a>
+      <a href="https://instagram.com/" class="btn">Instagram</a>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Cozy Knot Crochet • Handmade With Love
+  </footer>
+
+</body>
+</html>
