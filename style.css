@@ -179,14 +179,6 @@ footer{
   flex-wrap:wrap;
 }
 
-.about-photo img{
-  width:220px;
-  height:220px;
-  object-fit:cover;
-  border-radius:50%;
-  box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
-
 .about-text{
   flex:1;
   min-width:280px;
@@ -194,4 +186,38 @@ footer{
 
 .about-text h3{
   margin-top:20px;
+}
+.about-photo img{
+  width:220px;
+  height:220px;
+  object-fit:cover;
+  border-radius:50%;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+  /* animation */
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeInUp 1.2s ease forwards, float 4s ease-in-out infinite;
+  animation-delay:0.2s;
+}
+
+/* fade in */
+@keyframes fadeInUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* soft floating effect */
+@keyframes float{
+  0%{
+    transform:translateY(0px);
+  }
+  50%{
+    transform:translateY(-8px);
+  }
+  100%{
+    transform:translateY(0px);
+  }
 }
