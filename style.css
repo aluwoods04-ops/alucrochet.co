@@ -54,3 +54,28 @@
   border-radius:15px;
   scroll-snap-align:center;
 }
+.gallery-wrapper{
+  text-align:center;
+}
+
+/* dots container */
+.dots{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin-top:8px;
+}
+
+/* individual dot */
+.dots span{
+  width:7px;
+  height:7px;
+  background:#7A4732;
+  border-radius:50%;
+  opacity:0.4;
+}
+
+/* active-style look (static aesthetic version) */
+.dots span:first-child{
+  opacity:1;
+}
