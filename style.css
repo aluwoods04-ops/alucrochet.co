@@ -83,3 +83,16 @@
   height:220px;
   object-fit:cover;
     }
+@media(max-width:768px){
+
+  .logo img{
+    height:38px;
+  }
+
+  }
+.logo img{
+  height:45px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+  } 
