@@ -152,3 +152,7 @@ footer{
     font-size:2rem;
   }
 } 
+.logo img{
+  height:60px;
+  width:auto;
+}
