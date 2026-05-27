@@ -50,7 +50,7 @@ header{
   object-fit:contain;
 }
 
-/* NAVIGATION */
+/* NAV */
 nav a{
   color:white;
   text-decoration:none;
@@ -63,7 +63,7 @@ nav a:hover{
   color:var(--blush-pink);
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero{
   min-height:75vh;
   display:flex;
@@ -73,20 +73,16 @@ nav a:hover{
   padding:80px 8%;
 
   background:
-    linear-gradient(
-      rgba(241,206,202,0.75),
-      rgba(241,206,202,0.75)
-    ),
+    linear-gradient(rgba(241,206,202,0.75),
+    rgba(241,206,202,0.75)),
     url('bunny1.jpg');
 
   background-size:cover;
   background-position:center;
-
   border-bottom-left-radius:40px;
   border-bottom-right-radius:40px;
 }
 
-/* HERO CONTENT */
 .hero-content{
   max-width:700px;
 }
@@ -94,13 +90,6 @@ nav a:hover{
 .hero-content h1{
   font-family:'DM Serif Display', serif;
   font-size:4rem;
-  color:var(--deep-brown);
-  margin-bottom:20px;
-}
-
-.hero-content p{
-  font-size:1.15rem;
-  margin-bottom:25px;
 }
 
 /* SECTIONS */
@@ -108,21 +97,9 @@ section{
   padding:80px 8%;
 }
 
-/* TITLES */
 .section-title{
   text-align:center;
   margin-bottom:40px;
-}
-
-.section-title h1,
-.section-title h2{
-  font-family:'DM Serif Display', serif;
-  font-size:2.7rem;
-  margin-bottom:10px;
-}
-
-.section-title p{
-  color:#5C4033;
 }
 
 /* BUTTONS */
@@ -143,49 +120,61 @@ section{
   transform:translateY(-3px);
 }
 
-/* PRODUCT GRID */
+/* =========================
+   PINTEREST SHOP LAYOUT
+========================= */
+
 .products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
+  column-count:3;
+  column-gap:20px;
+  padding:10px;
 }
 
-/* PRODUCT CARDS */
+/* CARD */
 .card{
+  display:inline-block;
+  width:100%;
+  margin-bottom:20px;
+  break-inside:avoid;
+
   background:white;
   border-radius:25px;
   overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-8px);
+  transform:translateY(-6px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.12);
 }
 
-/* PRODUCT IMAGES */
+/* IMAGE */
 .card img{
   width:100%;
-  height:240px;
-  object-fit:cover;
+  height:auto;
+  display:block;
+  transition:0.4s ease;
 }
 
-/* PRODUCT CONTENT */
+.card:hover img{
+  transform:scale(1.05);
+}
+
+/* TEXT */
 .card-content{
-  padding:20px;
+  padding:18px;
 }
 
 .card-content h3{
   font-family:'DM Serif Display', serif;
   margin-bottom:10px;
-  color:var(--deep-brown);
 }
 
-.card-content p{
-  margin-bottom:12px;
-}
+/* =========================
+   SWIPE GALLERY (optional)
+========================= */
 
-/* SWIPE GALLERY */
 .gallery-wrapper{
   text-align:center;
 }
@@ -212,7 +201,7 @@ section{
   scroll-snap-align:center;
 }
 
-/* GALLERY DOTS */
+/* DOTS */
 .dots{
   display:flex;
   justify-content:center;
@@ -232,7 +221,10 @@ section{
   opacity:1;
 }
 
-/* COLOR OPTIONS */
+/* =========================
+   COLOR OPTIONS
+========================= */
+
 .color-options{
   display:flex;
   gap:10px;
@@ -248,44 +240,23 @@ section{
   box-shadow:0 2px 6px rgba(0,0,0,0.15);
 }
 
-/* COLOR SWATCHES */
-.pink{
-  background:#F6C7D3;
-}
+/* COLORS */
+.pink{background:#F6C7D3;}
+.sage{background:#AFC4A0;}
+.brown{background:#6B4A3A;}
+.blue{background:#AFCFFF;}
+.cream{background:#F6EBDD;}
+.lavender{background:#CDB4DB;}
 
-.sage{
-  background:#AFC4A0;
-}
+/* =========================
+   ABOUT
+========================= */
 
-.brown{
-  background:#6B4A3A;
-}
-
-.blue{
-  background:#AFCFFF;
-}
-
-.cream{
-  background:#F6EBDD;
-}
-
-.lavender{
-  background:#CDB4DB;
-}
-
-.color-label{
-  font-size:0.95rem;
-  color:#5C4033;
-}
-
-/* ABOUT SECTION */
 .about-wrapper{
   display:flex;
   gap:40px;
   max-width:1000px;
   margin:auto;
-  align-items:flex-start;
-  padding:20px;
   flex-wrap:wrap;
 }
 
@@ -299,44 +270,66 @@ section{
   opacity:0;
   transform:translateY(20px);
 
-  animation:
-    fadeInUp 1.2s ease forwards,
-    float 4s ease-in-out infinite;
-
-  animation-delay:0.2s;
+  animation:fadeInUp 1.2s ease forwards,
+            float 4s ease-in-out infinite;
 }
 
-.about-text{
-  flex:1;
-  min-width:280px;
+/* ANIMATIONS */
+@keyframes fadeInUp{
+  to{opacity:1; transform:translateY(0);}
 }
 
-.about-text h3{
-  margin-top:20px;
-  margin-bottom:10px;
-  font-family:'DM Serif Display', serif; 
-/* CUTE PRODUCT IMAGE BOX */
-.image-box{
-  background:white;
-  padding:10px;
-  border-radius:20px 20px 0 0;
-  overflow:hidden;
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+  100%{transform:translateY(0);}
 }
 
-/* make swipe sit inside clean frame */
-.image-box .gallery-swipe{
-  border-radius:15px;
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+  padding:25px;
+  background:var(--deep-brown);
+  color:white;
+  margin-top:50px;
 }
 
-/* soften overall card even more */
-.card{
-  background:white;
-  border-radius:25px;
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
+/* =========================
+   MOBILE
+========================= */
 
-/* optional: add spacing between image and text */
-.card-content{
-  padding:18px;
-   }
+@media(max-width:768px){
+
+  header{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  nav{
+    margin-top:10px;
+  }
+
+  nav a{
+    margin:0 10px;
+  }
+
+  .logo img{
+    height:38px;
+  }
+
+  .hero-content h1{
+    font-size:2.7rem;
+  }
+
+  .products{
+    column-count:1;
+  }
+
+  .gallery-swipe img{
+    height:220px;
+  }
+
+}
