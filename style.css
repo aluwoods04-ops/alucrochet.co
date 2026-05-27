@@ -315,3 +315,28 @@ section{
   margin-top:20px;
   margin-bottom:10px;
   font-family:'DM Serif Display', serif; 
+/* CUTE PRODUCT IMAGE BOX */
+.image-box{
+  background:white;
+  padding:10px;
+  border-radius:20px 20px 0 0;
+  overflow:hidden;
+}
+
+/* make swipe sit inside clean frame */
+.image-box .gallery-swipe{
+  border-radius:15px;
+}
+
+/* soften overall card even more */
+.card{
+  background:white;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* optional: add spacing between image and text */
+.card-content{
+  padding:18px;
+   }
