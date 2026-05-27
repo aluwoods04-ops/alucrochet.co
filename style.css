@@ -220,4 +220,25 @@ footer{
   100%{
     transform:translateY(0px);
   }
+.gallery-swipe{
+  display:flex;
+  overflow-x:auto;
+  gap:10px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  padding:10px;
 }
+
+/* hide scrollbar */
+.gallery-swipe::-webkit-scrollbar{
+  display:none;
+}
+
+.gallery-swipe img{
+  flex:0 0 100%;
+  max-width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:15px;
+  scroll-snap-align:center;
+  }
