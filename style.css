@@ -26,9 +26,9 @@ header{
 }
 
 .logo{
-  font-family:'DM Serif Display', serif;
-  font-size:1.8rem;
-  letter-spacing:0.5px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 /* NAV */
