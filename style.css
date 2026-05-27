@@ -1,0 +1,154 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  background:#F1CECA; /* soft blush pink */
+  color:#2A160C; /* deep cocoa brown */
+  line-height:1.6;
+}
+
+/* HEADER */
+header{
+  background:#2A160C;
+  color:white;
+  padding:18px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  font-family:'DM Serif Display', serif;
+  font-size:1.8rem;
+  letter-spacing:0.5px;
+}
+
+/* NAV */
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:18px;
+  font-weight:500;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#F1CECA;
+}
+
+/* SECTIONS */
+section{
+  padding:80px 8%;
+}
+
+/* TITLES */
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.section-title h1,
+.section-title h2{
+  font-family:'DM Serif Display', serif;
+  font-size:2.5rem;
+  margin-bottom:10px;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  background:#7A4732; /* warm brown */
+  color:white;
+  padding:12px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  margin:10px;
+  transition:0.3s;
+  font-weight:500;
+}
+
+.btn:hover{
+  background:#483216;
+  transform:translateY(-3px);
+}
+
+/* PRODUCTS GRID */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.card img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:15px;
+}
+
+/* ABOUT / TEXT */
+p{
+  font-size:1rem;
+}
+
+/* CONTACT BOX */
+.contact-box{
+  background:#7D5939;
+  color:white;
+  padding:40px;
+  border-radius:25px;
+  text-align:center;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:25px;
+  background:#2A160C;
+  color:white;
+  margin-top:50px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  header{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  nav{
+    margin-top:10px;
+  }
+
+  nav a{
+    margin:0 10px;
+  }
+
+  .section-title h1,
+  .section-title h2{
+    font-size:2rem;
+  }
+} 
