@@ -1,3 +1,4 @@
+/* ABOUT PHOTO */
 .about-photo img{
   width:220px;
   height:220px;
@@ -11,7 +12,7 @@
   animation-delay:0.2s;
 }
 
-/* fade in */
+/* FADE IN */
 @keyframes fadeInUp{
   to{
     opacity:1;
@@ -19,20 +20,34 @@
   }
 }
 
-/* float */
+/* FLOAT */
 @keyframes float{
   0%{
     transform:translateY(0px);
   }
+
   50%{
     transform:translateY(-8px);
   }
+
   100%{
     transform:translateY(0px);
   }
 }
 
+/* PRODUCT IMAGES */
+.card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  border-radius:15px 15px 0 0;
+}
+
 /* SWIPE GALLERY */
+.gallery-wrapper{
+  text-align:center;
+}
+
 .gallery-swipe{
   display:flex;
   overflow-x:auto;
@@ -48,16 +63,14 @@
 
 .gallery-swipe img{
   flex:0 0 100%;
-  height:220px;
+  width:100%;
+  height:240px;
   object-fit:cover;
   border-radius:15px;
   scroll-snap-align:center;
 }
-.gallery-wrapper{
-  text-align:center;
-}
 
-/* dots container */
+/* DOTS */
 .dots{
   display:flex;
   justify-content:center;
@@ -65,7 +78,6 @@
   margin-top:8px;
 }
 
-/* individual dot */
 .dots span{
   width:7px;
   height:7px;
@@ -74,25 +86,31 @@
   opacity:0.4;
 }
 
-/* active-style look (static aesthetic version) */
 .dots span:first-child{
   opacity:1;
 }
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-    }
+
+/* LOGO */
+.logo img{
+  height:45px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+}
+
+/* MOBILE */
 @media(max-width:768px){
 
   .logo img{
     height:38px;
   }
 
+  .gallery-swipe img{
+    height:220px;
   }
-.logo img{
-  height:45px;
-  width:auto;
-  display:block;
-  object-fit:contain;
-  } 
+
+  .card img{
+    height:220px;
+  }
+
+} 
