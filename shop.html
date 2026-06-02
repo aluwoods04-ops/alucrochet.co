@@ -11,17 +11,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --pink: #f2a7c3;
+      --pink: #EC9C9D;
       --sage: #a8c5a0;
       --brown: #8b5e3c;
       --blue: #a9cce3;
       --cream: #f5ead7;
       --lavender: #c9b8e8;
       --black: #2b2b2b;
-      --white: #fffdf9;
-      --bg: #fdf6ef;
-      --text: #3a2e28;
-      --muted: #8a7a6e;
+      --white: #FDF5F4;
+      --bg: #F9EDEB;
+      --text: #443025;
+      --muted: #AA7F66;
     }
 
     body {
@@ -36,10 +36,10 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(253, 246, 239, 0.92);
+      background: rgba(249, 237, 235, 0.92);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(242, 167, 195, 0.25);
+      border-bottom: 1px solid rgba(236, 156, 157, 0.25);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -92,7 +92,7 @@
 
     .filter-btn {
       background: var(--white);
-      border: 1.5px solid #e8d8cc;
+      border: 1.5px solid #e8cfc9;
       color: var(--muted);
       font-family: 'Poppins', sans-serif;
       font-size: 13px;
@@ -134,7 +134,7 @@
       background: var(--white);
       border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 2px 12px rgba(58, 46, 40, 0.07);
+      box-shadow: 0 2px 12px rgba(68, 48, 37, 0.07);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       display: flex;
       flex-direction: column;
@@ -142,7 +142,7 @@
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 28px rgba(58, 46, 40, 0.13);
+      box-shadow: 0 8px 28px rgba(68, 48, 37, 0.13);
     }
 
     /* ── SINGLE IMAGE (no gallery) ── */
@@ -158,7 +158,7 @@
       position: relative;
       overflow: hidden;
       aspect-ratio: 1 / 1;
-      background: #f0e8df;
+      background: #f0e0dc;
       flex-shrink: 0;
     }
 
@@ -319,7 +319,7 @@
     }
 
     .btn:hover {
-      background: #e8889e;
+      background: #d4787a;
       transform: translateY(-1px);
     }
 
@@ -340,7 +340,7 @@
     .contact-links .btn {
       background: var(--white);
       color: var(--text);
-      border: 1.5px solid #e8d8cc;
+      border: 1.5px solid #e8cfc9;
     }
     .contact-links .btn:hover { background: var(--pink); color: #fff; border-color: var(--pink); }
 
@@ -358,7 +358,7 @@
       padding: 20px;
       font-size: 12.5px;
       color: var(--muted);
-      border-top: 1px solid #ead8cc;
+      border-top: 1px solid #e8cfc9;
     }
 
     /* ── RESPONSIVE ── */
