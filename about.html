@@ -7,76 +7,198 @@
 
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── ABOUT PAGE EXTRAS ── */
+
+    .about-wrapper {
+      display: flex;
+      gap: 56px;
+      max-width: 980px;
+      margin: 0 auto;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    /* Photo column */
+    .about-photo {
+      flex-shrink: 0;
+    }
+
+    .about-photo img {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.13);
+      display: block;
+      animation: fadeInUp 1s ease forwards, float 4s ease-in-out 1s infinite;
+      opacity: 0;
+    }
+
+    /* Text column */
+    .about-text {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .about-text p {
+      font-size: 15px;
+      color: var(--deep-brown);
+      line-height: 1.85;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .about-text h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--warm-brown);
+      margin: 32px 0 10px;
+    }
+
+    .about-text strong {
+      font-weight: 600;
+      color: var(--warm-brown);
+    }
+
+    /* Stat pills */
+    .about-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 36px 0 0;
+    }
+
+    .stat-pill {
+      background: white;
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--deep-brown);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stat-pill span.emoji {
+      font-size: 16px;
+    }
+
+    /* CTA row */
+    .about-cta {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .about-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 36px;
+      }
+      .about-text {
+        text-align: left;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
   <div class="logo">
-    <img src="logo.png" alt="logo">
+    <img src="logo.png" alt="alucrochetco logo">
   </div>
-
   <nav>
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
     <a href="about.html">About</a>
+    <a href="mailto:woodsaloe@gmail.com">Email</a>
   </nav>
 </header>
 
-<!-- ABOUT SECTION -->
 <section>
 
   <div class="section-title">
     <h2>About Me</h2>
+    <p>The hands behind alucrochetco</p>
   </div>
 
   <div class="about-wrapper">
 
     <!-- PHOTO -->
     <div class="about-photo">
-      <img src="me.jpg" alt="Alu crochet and knit artist">
+      <img src="me.jpg" alt="Alu — crochet and knit artist">
     </div>
 
     <!-- TEXT -->
     <div class="about-text">
 
       <p>
-        Hi, I’m Alu. I’m a 21-year-old self-taught crochet and knit artist. I've been knitting since 2016 when a neighbor of mine decided to teach me. I left the art for some years until my interest was sparked again in 2023. After learning through YouTube tutorials and exploring it on my own. What began as curiosity quickly turned into something I genuinely enjoy and continue to grow with.
+        Hi, I'm <strong>Alu</strong> — a 21-year-old self-taught crochet and knit artist based in Cape Town.
+        I've been knitting since 2016, when a neighbour decided to teach me. I stepped away from it for a few years,
+        until 2023 sparked my curiosity again through YouTube tutorials and a lot of personal exploration.
+        What started as curiosity quickly became something I genuinely love and keep growing with.
       </p>
 
       <p>
-        In November of last year, I began making plushies — and that’s when I really found my creative direction.
+        In November of last year, I began making plushies — and that's when I really found my creative direction.
       </p>
 
       <h3>My Work</h3>
 
       <p>
-        I enjoy making toys, accessories, and clothing, but plushies have become my favourite focus. They feel more fun, expressive, and creatively rewarding.
+        I enjoy making toys, accessories, and clothing, but plushies have become my favourite focus.
+        They feel more fun, expressive, and creatively rewarding.
       </p>
 
       <p>
-        One of my most meaningful creations is <strong>Daisy</strong>, my very first plushie.
+        One of my most meaningful creations is <strong>Daisy</strong> — my very first plushie, and the one that started it all.
       </p>
 
       <h3>My Process</h3>
 
       <p>
-        Every plushie is handmade with care. A single bunny takes around 9–10 hours to complete.
+        Every plushie is handmade with care and attention. A single bunny takes around <strong>9–10 hours</strong> to complete —
+        each one made entirely by hand, stitch by stitch.
       </p>
 
       <h3>My Brand</h3>
 
       <p>
-        My style is soft, fun, and aesthetic. I want my brand to feel gentle and comforting, but still playful and full of personality.
+        My style is soft, fun, and aesthetic. I want alucrochetco to feel gentle and comforting,
+        but still playful and full of personality.
       </p>
 
       <p>
-        I’m currently growing my handmade business with the goal of expanding while still keeping that personal, handmade touch that makes it meaningful.
+        I'm currently growing my handmade business with the goal of expanding while keeping
+        that personal touch that makes every piece meaningful.
       </p>
 
       <p>
-        My plushies are made for kids and young adults — anyone who still finds joy in soft, cute, comforting things.
+        My pieces are made for kids and young adults — anyone who still finds joy in soft, cute, comforting things. 💕
       </p>
+
+      <!-- STATS -->
+      <div class="about-stats">
+        <div class="stat-pill"><span class="emoji">🧶</span> Crocheting since 2016</div>
+        <div class="stat-pill"><span class="emoji">📍</span> Cape Town, SA</div>
+        <div class="stat-pill"><span class="emoji">⏱️</span> 9–10 hrs per plushie</div>
+        <div class="stat-pill"><span class="emoji">✨</span> Est. 2024</div>
+      </div>
+
+      <!-- CTA -->
+      <div class="about-cta">
+        <a class="btn" href="shop.html">Shop Now</a>
+        <a class="btn" href="https://wa.me/27692396332">WhatsApp Me</a>
+        <a class="btn" href="https://instagram.com/alucrochetco">Instagram</a>
+      </div>
 
     </div>
 
@@ -89,4 +211,4 @@
 </footer>
 
 </body>
-</html> 
+</html>
