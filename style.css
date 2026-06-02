@@ -27,13 +27,13 @@
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--blush-pink);
-  color: var(--deep-brown);
+  color: #443025;
   line-height: 1.7;
 }
 
 /* HEADER */
 header {
-  background: var(--deep-brown);
+  background: #443025;
   padding: 18px 8%;
   display: flex;
   justify-content: space-between;
@@ -106,7 +106,7 @@ section {
 /* BUTTONS */
 .btn {
   display: inline-block;
-  background: var(--warm-brown);
+  background: #7F5836;
   color: white;
   padding: 12px 25px;
   border-radius: 30px;
@@ -117,7 +117,7 @@ section {
 }
 
 .btn:hover {
-  background: #5E3424;
+  background: #7F5836;
   transform: translateY(-3px);
 }
 
@@ -213,7 +213,7 @@ section {
   justify-content: center;
   cursor: pointer;
   font-size: 15px;
-  color: var(--deep-brown);
+  color: #443025;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
   transition: background 0.2s, opacity 0.2s;
   z-index: 2;
@@ -302,8 +302,8 @@ section {
 
 .filter-btn {
   background: var(--white);
-  border: 1.5px solid #e8d8cc;
-  color: var(--warm-brown);
+  border: 1.5px solid #e8cfc9;
+  color: #7F5836;
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
   font-weight: 500;
@@ -314,13 +314,13 @@ section {
 }
 
 .filter-btn:hover {
-  border-color: var(--warm-brown);
-  color: var(--deep-brown);
+  border-color: #7F5836;
+  color: #443025;
 }
 
 .filter-btn.active {
-  background: var(--warm-brown);
-  border-color: var(--warm-brown);
+  background: #7F5836;
+  border-color: #7F5836;
   color: #fff;
 }
 
@@ -372,7 +372,7 @@ section {
 footer {
   text-align: center;
   padding: 25px;
-  background: var(--deep-brown);
+  background: #443025;
   color: white;
   margin-top: 50px;
 }
