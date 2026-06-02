@@ -165,8 +165,9 @@
     .gallery-swipe {
       display: flex;
       height: 100%;
-      transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       will-change: transform;
+      transform: translateZ(0);
     }
 
     .gallery-swipe img {
@@ -404,9 +405,9 @@
     <div class="card" data-category="plushies">
       <div class="gallery-wrapper">
         <div class="gallery-swipe">
-          <img src="bunny1.jpg" alt="Daisy Bunny front view">
-          <img src="bunny2.jpg" alt="Daisy Bunny side view">
-          <img src="bunny3.jpg" alt="Daisy Bunny close up">
+          <img src="bunny1.jpg" alt="Daisy Bunny front view" decoding="async">
+          <img src="bunny2.jpg" alt="Daisy Bunny side view" loading="lazy" decoding="async">
+          <img src="bunny3.jpg" alt="Daisy Bunny close up" loading="lazy" decoding="async">
         </div>
         <button class="gallery-arrow prev" aria-label="Previous">&#8249;</button>
         <button class="gallery-arrow next" aria-label="Next">&#8250;</button>
@@ -433,7 +434,7 @@
 
     <!-- 🎀 RUFFLE HAT MEDIUM -->
     <div class="card" data-category="hats">
-      <img src="ruffle-medium.jpg" alt="Ruffle Hat Medium">
+      <img src="ruffle-medium.jpg" alt="Ruffle Hat Medium" loading="lazy" decoding="async">
       <div class="card-content">
         <h3>Ruffle Hat (Medium)</h3>
         <p>Soft handmade crochet ruffle hat.</p>
@@ -453,7 +454,7 @@
 
     <!-- 🎀 RUFFLE HAT LARGE -->
     <div class="card" data-category="hats">
-      <img src="ruffle-large.jpg" alt="Ruffle Hat Large">
+      <img src="ruffle-large.jpg" alt="Ruffle Hat Large" loading="lazy" decoding="async">
       <div class="card-content">
         <h3>Ruffle Hat (Large)</h3>
         <p>Warm oversized handmade crochet ruffle hat.</p>
@@ -475,9 +476,9 @@
     <div class="card" data-category="hats">
       <div class="gallery-wrapper">
         <div class="gallery-swipe">
-          <img src="catbeanie1.jpg" alt="Cat Beanie front view">
-          <img src="catbeanie2.jpg" alt="Cat Beanie side view">
-          <img src="catbeanie3.jpg" alt="Cat Beanie worn view">
+          <img src="catbeanie1.jpg" alt="Cat Beanie front view" decoding="async">
+          <img src="catbeanie2.jpg" alt="Cat Beanie side view" loading="lazy" decoding="async">
+          <img src="catbeanie3.jpg" alt="Cat Beanie worn view" loading="lazy" decoding="async">
         </div>
         <button class="gallery-arrow prev" aria-label="Previous">&#8249;</button>
         <button class="gallery-arrow next" aria-label="Next">&#8250;</button>
@@ -506,9 +507,9 @@
     <div class="card" data-category="hats">
       <div class="gallery-wrapper">
         <div class="gallery-swipe">
-          <img src="fur-trapper1.jpg" alt="Crochet Fur Trapper Hat">
-          <img src="fur-trapper2.jpg" alt="Crochet Fur Trapper Hat side">
-          <img src="fur-trapper3.jpg" alt="Crochet Fur Trapper Hat worn">
+          <img src="fur-trapper1.jpg" alt="Crochet Fur Trapper Hat" decoding="async">
+          <img src="fur-trapper2.jpg" alt="Crochet Fur Trapper Hat side" loading="lazy" decoding="async">
+          <img src="fur-trapper3.jpg" alt="Crochet Fur Trapper Hat worn" loading="lazy" decoding="async">
         </div>
         <button class="gallery-arrow prev" aria-label="Previous">&#8249;</button>
         <button class="gallery-arrow next" aria-label="Next">&#8250;</button>
@@ -540,7 +541,7 @@
 
     <!-- 🕷️ SPIDERMAN BEANIE -->
     <div class="card" data-category="hats">
-      <img src="spiderman-beanie.jpg" alt="Spiderman Beanie">
+      <img src="spiderman-beanie.jpg" alt="Spiderman Beanie" loading="lazy" decoding="async">
       <div class="card-content">
         <h3>Spiderman Beanie</h3>
         <p>Custom crochet Spiderman-inspired beanie.</p>
@@ -553,8 +554,8 @@
     <div class="card" data-category="clothing">
       <div class="gallery-wrapper">
         <div class="gallery-swipe">
-          <img src="shrug1.jpg" alt="Crochet Shrug front view">
-          <img src="shrug2.jpg" alt="Crochet Shrug side view">
+          <img src="shrug1.jpg" alt="Crochet Shrug front view" decoding="async">
+          <img src="shrug2.jpg" alt="Crochet Shrug side view" loading="lazy" decoding="async">
         </div>
         <button class="gallery-arrow prev" aria-label="Previous">&#8249;</button>
         <button class="gallery-arrow next" aria-label="Next">&#8250;</button>
@@ -608,15 +609,29 @@
   function initGallery(wrapper) {
     const swipe = wrapper.querySelector('.gallery-swipe');
     const dots  = wrapper.querySelectorAll('.dots span');
-    const imgs  = wrapper.querySelectorAll('.gallery-swipe img');
+    const imgs  = Array.from(wrapper.querySelectorAll('.gallery-swipe img'));
     const total = imgs.length;
     let current = 0;
+
+    // Preload an image by swapping data-src → src if needed
+    function preload(index) {
+      const img = imgs[(index + total) % total];
+      if (img && img.loading === 'lazy') {
+        img.loading = 'eager';
+      }
+    }
 
     function goTo(index) {
       current = (index + total) % total;
       swipe.style.transform = `translateX(-${current * 100}%)`;
       dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      // Preload the next and previous images
+      preload(current + 1);
+      preload(current - 1);
     }
+
+    // Preload slide 2 immediately so first swipe is instant
+    preload(1);
 
     wrapper.querySelector('.prev').addEventListener('click', () => goTo(current - 1));
     wrapper.querySelector('.next').addEventListener('click', () => goTo(current + 1));
@@ -624,10 +639,16 @@
 
     // Touch swipe support
     let startX = 0;
-    swipe.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-    swipe.addEventListener('touchend',   e => {
+    let isDragging = false;
+    swipe.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    }, { passive: true });
+    swipe.addEventListener('touchend', e => {
+      if (!isDragging) return;
+      isDragging = false;
       const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+      if (Math.abs(dx) > 30) goTo(current + (dx < 0 ? 1 : -1));
     });
   }
 
