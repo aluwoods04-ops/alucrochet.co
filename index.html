@@ -26,6 +26,32 @@
 
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "alucrochetco",
+    "url": "https://aluwoods04-ops.github.io/alucrochet.co/",
+    "logo": "https://aluwoods04-ops.github.io/alucrochet.co/logo.png",
+    "image": "https://aluwoods04-ops.github.io/alucrochet.co/bunny1.jpg",
+    "description": "Handmade crochet plushies, hats and clothing made with love in Cape Town, South Africa. Custom orders welcome.",
+    "priceRange": "R150 - R350",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cape Town",
+      "addressCountry": "ZA"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "url": "https://wa.me/27692396332"
+    },
+    "sameAs": [
+      "https://instagram.com/alucrochetco"
+    ]
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -321,6 +347,85 @@
       padding-bottom: 56px;
     }
 
+    /* ── GALLERY ── */
+    .gallery-wrapper {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      background: #f0e0dc;
+      flex-shrink: 0;
+    }
+
+    .gallery-swipe {
+      display: flex;
+      height: 100%;
+      transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    .gallery-swipe img {
+      min-width: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.75);
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 15px;
+      color: var(--text);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.15);
+      transition: background 0.2s, opacity 0.2s;
+      z-index: 2;
+      opacity: 0;
+    }
+
+    .gallery-wrapper:hover .gallery-arrow { opacity: 1; }
+    .gallery-arrow:hover { background: #fff; }
+    .gallery-arrow.prev { left: 10px; }
+    .gallery-arrow.next { right: 10px; }
+
+    .dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.55);
+      cursor: pointer;
+      display: block;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .dots span.active {
+      background: #fff;
+      transform: scale(1.25);
+    }
+
     /* ── FOOTER ── */
     footer {
       text-align: center;
@@ -389,13 +494,27 @@
       <div class="card-content">
         <h3>Bunny Plushie – Daisy</h3>
         <p>Soft handmade crochet bunny made with plush chenille yarn.</p>
-        <p><strong>R250</strong></p>
+        <p>
+          <strong>R250</strong>
+          <span style="text-decoration:line-through; color:#AA7F66; font-size:13px; margin-left:6px;">R350</span>
+          <span style="background:#EC9C9D; color:#fff; font-size:11px; font-weight:600; padding:2px 8px; border-radius:999px; margin-left:6px;">SPECIAL</span>
+        </p>
         <a class="btn" href="shop.html">View in Shop</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="ruffle-medium.jpg" alt="Ruffle Hat" loading="lazy" decoding="async">
+      <div class="gallery-wrapper">
+        <div class="gallery-swipe">
+          <img src="medium ruffle hat 1.jpg" alt="Ruffle Hat" decoding="async">
+          <img src="medium ruffle hat 2.jpg" alt="Ruffle Hat view 2" loading="lazy" decoding="async">
+        </div>
+        <button class="gallery-arrow prev" aria-label="Previous">&#8249;</button>
+        <button class="gallery-arrow next" aria-label="Next">&#8250;</button>
+        <div class="dots">
+          <span class="active"></span><span></span>
+        </div>
+      </div>
       <div class="card-content">
         <h3>Ruffle Hats</h3>
         <p>Cozy handmade crochet hats available in medium and large.</p>
@@ -458,6 +577,43 @@
 <footer>
   © 2024 alucrochetco • Handmade with love • Cape Town, South Africa
 </footer>
+
+<script>
+  function initGallery(wrapper) {
+    const swipe = wrapper.querySelector('.gallery-swipe');
+    const dots  = wrapper.querySelectorAll('.dots span');
+    const imgs  = Array.from(wrapper.querySelectorAll('.gallery-swipe img'));
+    const total = imgs.length;
+    let current = 0;
+
+    function preload(index) {
+      const img = imgs[(index + total) % total];
+      if (img && img.loading === 'lazy') img.loading = 'eager';
+    }
+
+    function goTo(index) {
+      current = (index + total) % total;
+      swipe.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      preload(current + 1);
+      preload(current - 1);
+    }
+
+    preload(1);
+    wrapper.querySelector('.prev').addEventListener('click', () => goTo(current - 1));
+    wrapper.querySelector('.next').addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+    let startX = 0;
+    swipe.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    swipe.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 30) goTo(current + (dx < 0 ? 1 : -1));
+    });
+  }
+
+  document.querySelectorAll('.gallery-wrapper').forEach(initGallery);
+</script>
 
 </body>
 </html>
