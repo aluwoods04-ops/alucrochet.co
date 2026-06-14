@@ -267,23 +267,23 @@
 
       header nav {
         position: fixed;
-        top: 0; right: -100%;
-        width: 70%;
-        max-width: 280px;
+        top: 0; left: -100%;
+        width: 75%;
+        max-width: 300px;
         height: 100vh;
         background: var(--white);
-        box-shadow: -4px 0 24px rgba(68, 48, 37, 0.12);
+        box-shadow: 4px 0 24px rgba(68, 48, 37, 0.15);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
         padding: 40px 32px;
         gap: 8px;
-        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 9999;
       }
 
-      header nav.open { right: 0; }
+      header nav.open { left: 0; }
 
       header nav a {
         font-size: 20px;
@@ -299,9 +299,9 @@
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(68, 48, 37, 0.35);
+        background: rgba(68, 48, 37, 0.5);
         z-index: 9998;
-        backdrop-filter: blur(2px);
+        -webkit-tap-highlight-color: transparent;
       }
 
       .nav-overlay.open { display: block; }
@@ -448,23 +448,27 @@
   const nav       = document.querySelector("header nav");
   const overlay   = document.querySelector(".nav-overlay");
 
+  function openMenu() {
+    hamburger.classList.add("open");
+    nav.classList.add("open");
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    hamburger.classList.remove("open");
+    nav.classList.remove("open");
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
   if (hamburger) {
     hamburger.addEventListener("click", () => {
-      hamburger.classList.toggle("open");
-      nav.classList.toggle("open");
-      overlay.classList.toggle("open");
+      nav.classList.contains("open") ? closeMenu() : openMenu();
     });
-    overlay.addEventListener("click", () => {
-      hamburger.classList.remove("open");
-      nav.classList.remove("open");
-      overlay.classList.remove("open");
-    });
+    overlay.addEventListener("click", closeMenu);
     nav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        hamburger.classList.remove("open");
-        nav.classList.remove("open");
-        overlay.classList.remove("open");
-      });
+      a.addEventListener("click", closeMenu);
     });
   }
 
