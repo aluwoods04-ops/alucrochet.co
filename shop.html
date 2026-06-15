@@ -306,7 +306,10 @@
       transition: transform 0.15s, box-shadow 0.15s;
     }
 
-    .color:hover {
+    .color:hover { transform: scale(1.15); }
+
+    .color.selected {
+      box-shadow: 0 0 0 2.5px var(--white), 0 0 0 4.5px var(--text);
       transform: scale(1.15);
     }
 
@@ -533,20 +536,20 @@
         <h3>Bunny Plushie – Daisy</h3>
         <p>Soft handmade crochet bunny made with plush chenille yarn. A perfect comfort plush or gift.</p>
         <div class="color-options">
-          <span class="color pink" title="Pastel Pink"></span>
-          <span class="color sage" title="Sage Green"></span>
-          <span class="color brown" title="Chocolate Brown"></span>
-          <span class="color blue" title="Baby Blue"></span>
-          <span class="color cream" title="Cream"></span>
-          <span class="color lavender" title="Lavender"></span>
-          <span class="color black" title="Black"></span>
+          <span class="color pink"     data-color="Pastel Pink"></span>
+          <span class="color sage"     data-color="Sage Green"></span>
+          <span class="color brown"    data-color="Chocolate Brown"></span>
+          <span class="color blue"     data-color="Baby Blue"></span>
+          <span class="color cream"    data-color="Cream"></span>
+          <span class="color lavender" data-color="Lavender"></span>
+          <span class="color black"    data-color="Black"></span>
         </div>
         <p>
           <strong>R250</strong>
           <span style="text-decoration:line-through; color:var(--muted); font-size:13px; margin-left:6px;">R350</span>
           <span style="background:#EC9C9D; color:#fff; font-size:11px; font-weight:600; padding:2px 8px; border-radius:999px; margin-left:6px;">SPECIAL</span>
         </p>
-        <a class="btn" href="https://wa.me/27692396332?text=Hi! I want to order Daisy Bunny Plushie 🐰 (R250 special)">Order Now</a>
+        <a class="btn order-btn" data-base="Hi! I want to order Daisy Bunny Plushie 🐰 (R250 special)" href="https://wa.me/27692396332?text=Hi! I want to order Daisy Bunny Plushie 🐰 (R250 special)">Order Now</a>
       </div>
     </div>
 
@@ -567,16 +570,16 @@
         <h3>Ruffle Hat (Medium)</h3>
         <p>Soft handmade crochet ruffle hat.</p>
         <div class="color-options">
-          <span class="color pink" title="Pastel Pink"></span>
-          <span class="color sage" title="Sage Green"></span>
-          <span class="color brown" title="Chocolate Brown"></span>
-          <span class="color blue" title="Baby Blue"></span>
-          <span class="color cream" title="Cream"></span>
-          <span class="color lavender" title="Lavender"></span>
-          <span class="color black" title="Black"></span>
+          <span class="color pink"     data-color="Pastel Pink"></span>
+          <span class="color sage"     data-color="Sage Green"></span>
+          <span class="color brown"    data-color="Chocolate Brown"></span>
+          <span class="color blue"     data-color="Baby Blue"></span>
+          <span class="color cream"    data-color="Cream"></span>
+          <span class="color lavender" data-color="Lavender"></span>
+          <span class="color black"    data-color="Black"></span>
         </div>
         <p><strong>R180</strong></p>
-        <a class="btn" href="https://wa.me/27692396332?text=Hi! I want a Medium Ruffle Hat (R180)">Order Now</a>
+        <a class="btn order-btn" data-base="Hi! I want a Medium Ruffle Hat (R180)" href="https://wa.me/27692396332?text=Hi! I want a Medium Ruffle Hat (R180)">Order Now</a>
       </div>
     </div>
 
@@ -587,16 +590,16 @@
         <h3>Ruffle Hat (Large)</h3>
         <p>Warm oversized handmade crochet ruffle hat.</p>
         <div class="color-options">
-          <span class="color pink" title="Pastel Pink"></span>
-          <span class="color sage" title="Sage Green"></span>
-          <span class="color brown" title="Chocolate Brown"></span>
-          <span class="color blue" title="Baby Blue"></span>
-          <span class="color cream" title="Cream"></span>
-          <span class="color lavender" title="Lavender"></span>
-          <span class="color black" title="Black"></span>
+          <span class="color pink"     data-color="Pastel Pink"></span>
+          <span class="color sage"     data-color="Sage Green"></span>
+          <span class="color brown"    data-color="Chocolate Brown"></span>
+          <span class="color blue"     data-color="Baby Blue"></span>
+          <span class="color cream"    data-color="Cream"></span>
+          <span class="color lavender" data-color="Lavender"></span>
+          <span class="color black"    data-color="Black"></span>
         </div>
         <p><strong>R220</strong></p>
-        <a class="btn" href="https://wa.me/27692396332?text=Hi! I want a Large Ruffle Hat (R220)">Order Now</a>
+        <a class="btn order-btn" data-base="Hi! I want a Large Ruffle Hat (R220)" href="https://wa.me/27692396332?text=Hi! I want a Large Ruffle Hat (R220)">Order Now</a>
       </div>
     </div>
 
@@ -618,16 +621,16 @@
         <h3>Crochet Cat Beanie</h3>
         <p>Soft handmade crochet cat beanie with a cozy fit.</p>
         <div class="color-options">
-          <span class="color pink" title="Pastel Pink"></span>
-          <span class="color sage" title="Sage Green"></span>
-          <span class="color brown" title="Chocolate Brown"></span>
-          <span class="color blue" title="Baby Blue"></span>
-          <span class="color cream" title="Cream"></span>
-          <span class="color lavender" title="Lavender"></span>
-          <span class="color black" title="Black"></span>
+          <span class="color pink"     data-color="Pastel Pink"></span>
+          <span class="color sage"     data-color="Sage Green"></span>
+          <span class="color brown"    data-color="Chocolate Brown"></span>
+          <span class="color blue"     data-color="Baby Blue"></span>
+          <span class="color cream"    data-color="Cream"></span>
+          <span class="color lavender" data-color="Lavender"></span>
+          <span class="color black"    data-color="Black"></span>
         </div>
         <p><strong>From R180</strong></p>
-        <a class="btn" href="https://wa.me/27692396332?text=Hi! I want to order a Crochet Cat Beanie 🐱">Order Now</a>
+        <a class="btn order-btn" data-base="Hi! I want to order a Crochet Cat Beanie 🐱" href="https://wa.me/27692396332?text=Hi! I want to order a Crochet Cat Beanie 🐱">Order Now</a>
       </div>
     </div>
 
@@ -649,21 +652,21 @@
         <h3>Fur Trapper Hat</h3>
         <p>Cozy handmade crochet trapper hat with soft fur lining. Warm, stylish, and perfect for cold days.</p>
         <p class="color-label">Base colour</p>
-        <div class="color-options">
-          <span class="color pink" title="Pink base"></span>
-          <span class="color sage" title="Sage base"></span>
-          <span class="color cream" title="Cream base"></span>
-          <span class="color lavender" title="Lavender base"></span>
-          <span class="color brown" title="Brown base"></span>
+        <div class="color-options" data-group="base">
+          <span class="color pink"     data-color="Pink base"></span>
+          <span class="color sage"     data-color="Sage base"></span>
+          <span class="color cream"    data-color="Cream base"></span>
+          <span class="color lavender" data-color="Lavender base"></span>
+          <span class="color brown"    data-color="Brown base"></span>
         </div>
         <p class="color-label">Fur colour</p>
-        <div class="color-options">
-          <span class="color black" title="Black fur"></span>
-          <span class="color white" title="White fur"></span>
-          <span class="color brown" title="Brown fur"></span>
+        <div class="color-options" data-group="fur">
+          <span class="color black" data-color="Black fur"></span>
+          <span class="color white" data-color="White fur"></span>
+          <span class="color brown" data-color="Brown fur"></span>
         </div>
         <p><strong>R150</strong></p>
-        <a class="btn" href="https://wa.me/27692396332?text=Hi! I want to order a Fur Trapper Hat 🧸 (R150)">Order Now</a>
+        <a class="btn order-btn" data-base="Hi! I want to order a Fur Trapper Hat 🧸 (R150)" href="https://wa.me/27692396332?text=Hi! I want to order a Fur Trapper Hat 🧸 (R150)">Order Now</a>
       </div>
     </div>
 
@@ -695,14 +698,14 @@
         <h3>Crochet Shrug</h3>
         <p>Soft handmade crochet shrug with a cozy lightweight feel. Perfect for layering and adding a cute touch to any outfit.</p>
         <div class="color-options">
-          <span class="color pink" title="Pink"></span>
-          <span class="color cream" title="Cream"></span>
-          <span class="color brown" title="Brown"></span>
-          <span class="color lavender" title="Lavender"></span>
-          <span class="color green" title="Green"></span>
+          <span class="color pink"     data-color="Pink"></span>
+          <span class="color cream"    data-color="Cream"></span>
+          <span class="color brown"    data-color="Brown"></span>
+          <span class="color lavender" data-color="Lavender"></span>
+          <span class="color green"    data-color="Green"></span>
         </div>
         <p><strong>R280</strong></p>
-        <a class="btn" href="https://wa.me/27692396332?text=Hi! I want to order a Crochet Shrug ✨ (R280)">Order Now</a>
+        <a class="btn order-btn" data-base="Hi! I want to order a Crochet Shrug ✨ (R280)" href="https://wa.me/27692396332?text=Hi! I want to order a Crochet Shrug ✨ (R280)">Order Now</a>
       </div>
     </div>
 
@@ -800,6 +803,37 @@
   }
 
   document.querySelectorAll('.gallery-wrapper').forEach(initGallery);
+
+  // ── COLOUR SWATCH SELECTION ──────────────────────────────────
+  document.querySelectorAll('.card').forEach(card => {
+    const orderBtn = card.querySelector('.order-btn');
+    if (!orderBtn) return;
+    const baseMsg = orderBtn.dataset.base;
+
+    card.querySelectorAll('.color-options').forEach(group => {
+      group.querySelectorAll('.color').forEach(swatch => {
+        swatch.addEventListener('click', () => {
+          // Deselect others in same group
+          group.querySelectorAll('.color').forEach(s => s.classList.remove('selected'));
+          swatch.classList.add('selected');
+
+          // Build message with all selected colours across groups
+          const selections = [];
+          card.querySelectorAll('.color-options').forEach(g => {
+            const sel = g.querySelector('.color.selected');
+            if (sel) selections.push(sel.dataset.color);
+          });
+
+          const colourText = selections.length
+            ? ' — Colour: ' + selections.join(', ')
+            : '';
+
+          orderBtn.href = 'https://wa.me/27692396332?text=' +
+            encodeURIComponent(baseMsg + colourText);
+        });
+      });
+    });
+  });
 
   // ── FILTER ───────────────────────────────────────────────────
   const filterBtns = document.querySelectorAll('.filter-btn');
