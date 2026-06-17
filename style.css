@@ -67,42 +67,7 @@ header nav a {
 header nav a:hover  { color: var(--pink); }
 header nav a.active { color: var(--pink); font-weight: 600; }
 
-/* ── HAMBURGER ── */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 4px;
-  background: none;
-  border: none;
-  z-index: 10000;
-}
 
-.hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--text);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-/* ── NAV OVERLAY ── */
-.nav-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(68, 48, 37, 0.5);
-  z-index: 9998;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.nav-overlay.open { display: block; }
 
 /* ── SECTION TITLE ── */
 .section-title {
@@ -712,42 +677,12 @@ footer {
 }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 640px) {
-  .hamburger { display: flex; }
 
-  header nav {
-    position: fixed;
-    top: 0; left: -100%;
-    width: 75%;
-    max-width: 300px;
-    height: 100vh;
-    background: var(--white);
-    box-shadow: 4px 0 24px rgba(68, 48, 37, 0.15);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 40px 32px;
-    gap: 8px;
-    transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 9999;
-  }
-
-  header nav.open { left: 0; }
-
-  header nav a {
-    font-size: 20px;
-    margin-left: 0;
-    padding: 10px 0;
-    width: 100%;
-    border-bottom: 1px solid #e8cfc9;
-  }
-
-  header nav a:last-child { border-bottom: none; }
-}
 
 @media (max-width: 600px) {
-  header { padding: 12px 16px; }
+  header { padding: 12px 16px; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
+  header nav { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; width: 100%; border-top: 1px solid rgba(236,156,157,0.2); padding-top: 10px; }
+  header nav a { margin-left: 0; font-size: 13px; padding: 4px 10px; }
   .products { gap: 14px; padding: 0 12px 48px; }
   .section-title { padding: 36px 16px 24px; }
   .filter-bar { padding: 0 12px 24px; }

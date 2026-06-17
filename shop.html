@@ -35,9 +35,6 @@
   <div class="logo">
     <img src="logo.png" alt="alucrochetco logo">
   </div>
-  <button class="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
   <nav>
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
@@ -45,7 +42,6 @@
     <a href="mailto:woodsaloe@gmail.com">Email</a>
   </nav>
 </header>
-<div class="nav-overlay"></div>
 
 <section>
 
@@ -100,6 +96,7 @@
           <strong>R250</strong>
           <span style="text-decoration:line-through; color:var(--muted); font-size:13px; margin-left:6px;">R350</span>
           <span style="background:#EC9C9D; color:#fff; font-size:11px; font-weight:600; padding:2px 8px; border-radius:999px; margin-left:6px;">SPECIAL</span>
+          <br><span style="font-size:12px; color:#d4787a; font-weight:600; margin-top:4px; display:inline-block;">🔥 4 spots left at this price!</span>
         </p>
         <a class="btn order-btn" data-base="Hi! I want to order Daisy Bunny Plushie 🐰 (R250 special)" href="https://wa.me/27692396332?text=Hi! I want to order Daisy Bunny Plushie 🐰 (R250 special)">Order Now</a>
       </div>
@@ -289,6 +286,9 @@
   © 2024 alucrochetco • Handmade with love • Cape Town, South Africa
 </footer>
 
+
+
+
 <script>
   // ── GALLERY ──────────────────────────────────────────────────
   function initGallery(wrapper) {
@@ -298,35 +298,25 @@
     const total = imgs.length;
     let current = 0;
 
-    // Preload an image by swapping data-src → src if needed
     function preload(index) {
       const img = imgs[(index + total) % total];
-      if (img && img.loading === 'lazy') {
-        img.loading = 'eager';
-      }
+      if (img && img.loading === 'lazy') img.loading = 'eager';
     }
 
     function goTo(index) {
       current = (index + total) % total;
       swipe.style.transform = `translateX(-${current * 100}%)`;
       dots.forEach((d, i) => d.classList.toggle('active', i === current));
-      // Preload the next and previous images
       preload(current + 1);
       preload(current - 1);
     }
 
-    // Preload slide 2 immediately so first swipe is instant
     preload(1);
-
     wrapper.querySelector('.prev').addEventListener('click', () => goTo(current - 1));
     wrapper.querySelector('.next').addEventListener('click', () => goTo(current + 1));
     dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
 
-    // Touch swipe support
-    let startX = 0;
-    let startY = 0;
-    let isDragging = false;
-    let isHorizontal = null;
+    let startX = 0, startY = 0, isDragging = false, isHorizontal = null;
 
     swipe.addEventListener('touchstart', e => {
       startX = e.touches[0].clientX;
@@ -339,11 +329,7 @@
       if (!isDragging) return;
       const dx = e.touches[0].clientX - startX;
       const dy = e.touches[0].clientY - startY;
-      // Determine direction on first move
-      if (isHorizontal === null) {
-        isHorizontal = Math.abs(dx) > Math.abs(dy);
-      }
-      // Only block scroll if swiping horizontally
+      if (isHorizontal === null) isHorizontal = Math.abs(dx) > Math.abs(dy);
       if (isHorizontal) e.preventDefault();
     }, { passive: false });
 
@@ -376,23 +362,17 @@
     card.querySelectorAll('.color-options').forEach(group => {
       group.querySelectorAll('.color').forEach(swatch => {
         swatch.addEventListener('click', () => {
-          // Deselect others in same group
           group.querySelectorAll('.color').forEach(s => s.classList.remove('selected'));
           swatch.classList.add('selected');
 
-          // Build message with all selected colours across groups
           const selections = [];
           card.querySelectorAll('.color-options').forEach(g => {
             const sel = g.querySelector('.color.selected');
             if (sel) selections.push(sel.dataset.color);
           });
 
-          const colourText = selections.length
-            ? ' — Colour: ' + selections.join(', ')
-            : '';
-
-          orderBtn.href = 'https://wa.me/27692396332?text=' +
-            encodeURIComponent(baseMsg + colourText);
+          const colourText = selections.length ? ' — Colour: ' + selections.join(', ') : '';
+          orderBtn.href = 'https://wa.me/27692396332?text=' + encodeURIComponent(baseMsg + colourText);
         });
       });
     });
@@ -406,7 +386,6 @@
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
       const filter = btn.dataset.filter;
       cards.forEach(card => {
         const match = filter === 'all' || card.dataset.category === filter;
@@ -414,59 +393,25 @@
       });
     });
   });
-</script>
 
-<script>
-  // ── ACTIVE NAV ──
-  const currentPage = location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll("header nav a").forEach(a => {
-    const href = a.getAttribute("href");
-    if (href === currentPage || (currentPage === "" && href === "index.html")) {
-      a.classList.add("active");
-    }
+  // ── ACTIVE NAV ───────────────────────────────────────────────
+  const currentPage = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('header nav a').forEach(a => {
+    if (a.getAttribute('href') === currentPage) a.classList.add('active');
   });
 
-  // ── HAMBURGER ──
-  const hamburger = document.querySelector(".hamburger");
-  const nav       = document.querySelector("header nav");
-  const overlay   = document.querySelector(".nav-overlay");
-
-  function openMenu() {
-    hamburger.classList.add("open");
-    nav.classList.add("open");
-    overlay.classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeMenu() {
-    hamburger.classList.remove("open");
-    nav.classList.remove("open");
-    overlay.classList.remove("open");
-    document.body.style.overflow = "";
-  }
-
-  if (hamburger) {
-    hamburger.addEventListener("click", () => {
-      nav.classList.contains("open") ? closeMenu() : openMenu();
-    });
-    overlay.addEventListener("click", closeMenu);
-    nav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", closeMenu);
-    });
-  }
-
-  // ── SCROLL ANIMATIONS ──
+  // ── SCROLL ANIMATIONS ────────────────────────────────────────
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add("visible"), i * 80);
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll(".card, .perk, .stat-pill, .custom-card, .section-title, .about-wrapper").forEach(el => {
-    el.classList.add("fade-in");
+  document.querySelectorAll('.card, .perk, .stat-pill, .custom-card, .section-title, .about-wrapper').forEach(el => {
+    el.classList.add('fade-in');
     observer.observe(el);
   });
 </script>

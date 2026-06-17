@@ -35,9 +35,6 @@
   <div class="logo">
     <img src="logo.png" alt="alucrochetco logo">
   </div>
-  <button class="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
   <nav>
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
@@ -45,7 +42,6 @@
     <a href="mailto:woodsaloe@gmail.com">Email</a>
   </nav>
 </header>
-<div class="nav-overlay"></div>
 
 <section>
 
@@ -92,57 +88,26 @@
   © 2024 alucrochetco • Handmade with love • Cape Town, South Africa
 </footer>
 
+
 <script>
-  // ── ACTIVE NAV ──
-  const currentPage = location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll("header nav a").forEach(a => {
-    const href = a.getAttribute("href");
-    if (href === currentPage || (currentPage === "" && href === "index.html")) {
-      a.classList.add("active");
-    }
+  // ── ACTIVE NAV ───────────────────────────────────────────────
+  const currentPage = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('header nav a').forEach(a => {
+    if (a.getAttribute('href') === currentPage) a.classList.add('active');
   });
 
-  // ── HAMBURGER ──
-  const hamburger = document.querySelector(".hamburger");
-  const nav       = document.querySelector("header nav");
-  const overlay   = document.querySelector(".nav-overlay");
-
-  function openMenu() {
-    hamburger.classList.add("open");
-    nav.classList.add("open");
-    overlay.classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeMenu() {
-    hamburger.classList.remove("open");
-    nav.classList.remove("open");
-    overlay.classList.remove("open");
-    document.body.style.overflow = "";
-  }
-
-  if (hamburger) {
-    hamburger.addEventListener("click", () => {
-      nav.classList.contains("open") ? closeMenu() : openMenu();
-    });
-    overlay.addEventListener("click", closeMenu);
-    nav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", closeMenu);
-    });
-  }
-
-  // ── SCROLL ANIMATIONS ──
+  // ── SCROLL ANIMATIONS ────────────────────────────────────────
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add("visible"), i * 80);
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll(".card, .perk, .stat-pill, .custom-card, .section-title, .about-wrapper").forEach(el => {
-    el.classList.add("fade-in");
+  document.querySelectorAll('.card, .perk, .stat-pill, .custom-card, .section-title, .about-wrapper').forEach(el => {
+    el.classList.add('fade-in');
     observer.observe(el);
   });
 </script>
