@@ -352,15 +352,18 @@ header nav a.active { color: var(--pink); font-weight: 600; }
   transform: scale(1.15);
 }
 
-.color.pink     { background: #f2a7c3; }
-.color.sage     { background: #a8c5a0; }
-.color.brown    { background: #8b5e3c; }
-.color.blue     { background: #a9cce3; }
-.color.cream    { background: #f5ead7; border-color: #ddd; }
-.color.lavender { background: #c9b8e8; }
-.color.black    { background: #2b2b2b; }
-.color.white    { background: #ffffff; border-color: #ccc; }
-.color.green    { background: #8bc49a; }
+/* New colour palette */
+.color.c-cream      { background: #F5EAD7; border-color: #ddd; }
+.color.c-grey       { background: #C4C4C4; }
+.color.c-black      { background: #2b2b2b; }
+.color.c-cherry     { background: #C0392B; }
+.color.c-hotpink    { background: #FF69B4; }
+.color.c-lilac      { background: #C8A2C8; }
+.color.c-babyblue   { background: #A9CCE3; }
+.color.c-emerald    { background: #2ECC71; }
+.color.c-mustard    { background: #E3A020; }
+.color.c-tangerine  { background: #F28500; }
+.color.c-white      { background: #FFFFFF; border-color: #ccc; }
 
 /* ── BUTTON ── */
 .btn {
