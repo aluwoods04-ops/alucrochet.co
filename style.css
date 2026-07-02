@@ -645,6 +645,89 @@ header nav a.active { color: var(--pink); font-weight: 600; }
   line-height: 2.2;
 }
 
+/* ── CAT BEANIE VARIANT PICKER ── */
+.variant-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.variant-btn {
+  background: var(--bg);
+  border: 1.5px solid #e8cfc9;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  font-family: 'Poppins', sans-serif;
+  text-align: left;
+  width: 100%;
+}
+
+.variant-btn:hover {
+  border-color: var(--pink);
+  background: #fdf0ee;
+  transform: translateY(-1px);
+}
+
+.variant-btn.selected {
+  border-color: var(--text);
+  background: var(--white);
+  box-shadow: 0 0 0 1.5px var(--text);
+}
+
+.variant-swatches {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.variant-swatches .color {
+  width: 16px;
+  height: 16px;
+  cursor: default;
+}
+
+.variant-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1px;
+}
+
+.variant-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.variant-desc {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.variant-price {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.variant-btn.selected .variant-price {
+  color: var(--pink);
+}
+
+.catbeanie-order-btn[aria-disabled="true"] {
+  background: #ccc;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* ── SPIDER-VERSE DESIGN PICKER ── */
 .design-picker {
   display: grid;

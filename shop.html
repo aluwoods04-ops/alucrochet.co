@@ -153,7 +153,7 @@
     </div>
 
     <!-- 🐱 CAT BEANIE -->
-    <div class="card" data-category="hats">
+    <div class="card" data-category="hats" id="catbeanie-card">
       <div class="gallery-wrapper">
         <div class="gallery-swipe">
           <img src="catbeanie1.jpg" alt="Cat Beanie front view" decoding="async">
@@ -168,18 +168,55 @@
       </div>
       <div class="card-content">
         <h3>Crochet Cat Beanie</h3>
-        <p>Soft handmade crochet cat beanie with a cozy fit.</p>
-        <div class="color-options">
-          <span class="color pink"     data-color="Pastel Pink"></span>
-          <span class="color sage"     data-color="Sage Green"></span>
-          <span class="color brown"    data-color="Chocolate Brown"></span>
-          <span class="color blue"     data-color="Baby Blue"></span>
-          <span class="color cream"    data-color="Cream"></span>
-          <span class="color lavender" data-color="Lavender"></span>
-          <span class="color black"    data-color="Black"></span>
+        <p>Soft handmade crochet cat beanie with a cozy fit. Available in single, duo tone, or fully custom colours.</p>
+
+        <!-- COLOUR VARIANT PICKER -->
+        <p class="color-label">Choose your colour option</p>
+        <div class="variant-picker">
+
+          <button class="variant-btn" data-variant="Classic (Single Colour)" data-price="180">
+            <span class="variant-swatches">
+              <span class="color pink" style="pointer-events:none;"></span>
+            </span>
+            <span class="variant-info">
+              <span class="variant-name">Classic</span>
+              <span class="variant-desc">Single Colour</span>
+            </span>
+            <span class="variant-price">R180</span>
+          </button>
+
+          <button class="variant-btn" data-variant="Duo Tone (Two Colours)" data-price="200">
+            <span class="variant-swatches">
+              <span class="color pink"  style="pointer-events:none;"></span>
+              <span class="color sage"  style="pointer-events:none;"></span>
+            </span>
+            <span class="variant-info">
+              <span class="variant-name">Duo Tone</span>
+              <span class="variant-desc">Two Colours</span>
+            </span>
+            <span class="variant-price">R200</span>
+          </button>
+
+          <button class="variant-btn" data-variant="Custom Colours" data-price="220">
+            <span class="variant-swatches">
+              <span class="color pink"     style="pointer-events:none;"></span>
+              <span class="color sage"     style="pointer-events:none;"></span>
+              <span class="color lavender" style="pointer-events:none;"></span>
+            </span>
+            <span class="variant-info">
+              <span class="variant-name">Custom</span>
+              <span class="variant-desc">Your Colours</span>
+            </span>
+            <span class="variant-price">R220</span>
+          </button>
+
         </div>
-        <p><strong>From R180</strong></p>
-        <a class="btn order-btn" data-base="Hi! I want to order a Crochet Cat Beanie 🐱" href="https://wa.me/27692396332?text=Hi! I want to order a Crochet Cat Beanie 🐱">Order Now</a>
+
+        <p><strong id="catbeanie-price-display">From R180</strong></p>
+
+        <a class="btn catbeanie-order-btn" id="catbeanie-order" href="#" aria-disabled="true">
+          Select an Option First
+        </a>
       </div>
     </div>
 
@@ -418,6 +455,32 @@
         const match = filter === 'all' || card.dataset.category === filter;
         card.classList.toggle('hidden', !match);
       });
+    });
+  });
+
+  // ── CAT BEANIE VARIANT PICKER ────────────────────────────────
+  const variantBtns     = document.querySelectorAll('.variant-btn');
+  const catPriceDisplay = document.getElementById('catbeanie-price-display');
+  const catOrderBtn     = document.getElementById('catbeanie-order');
+
+  variantBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      variantBtns.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      const variant = btn.dataset.variant;
+      const price   = btn.dataset.price;
+
+      catPriceDisplay.textContent = `R${price}`;
+
+      catOrderBtn.setAttribute('aria-disabled', 'false');
+      catOrderBtn.textContent = 'Order Now';
+      catOrderBtn.style.background = '';
+      catOrderBtn.style.cursor = '';
+      catOrderBtn.style.pointerEvents = '';
+      catOrderBtn.href = `https://wa.me/27692396332?text=${encodeURIComponent(
+        `Hi! I want to order a Crochet Cat Beanie 🐱 — Option: ${variant} (R${price})`
+      )}`;
     });
   });
 
