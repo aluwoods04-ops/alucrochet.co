@@ -219,14 +219,41 @@
       </div>
     </div>
 
-    <!-- 🕷️ SPIDERMAN BEANIE -->
-    <div class="card" data-category="hats">
-      <img src="spiderman-beanie.jpg" alt="Spiderman Beanie" loading="lazy" decoding="async">
+    <!-- 🕷️ SPIDER-VERSE TAPESTRY BEANIE -->
+    <div class="card" data-category="hats" id="spiderverse-card">
+      <img src="spiderman-beanie.jpg" alt="Spider-Verse Tapestry Beanie" loading="lazy" decoding="async">
       <div class="card-content">
-        <h3>Spiderman Beanie</h3>
-        <p>Custom crochet Spiderman-inspired beanie.</p>
-        <p><strong>R200</strong></p>
-        <a class="btn" href="https://wa.me/27692396332?text=Hi! I want to order a Spiderman Beanie 🕷️ (R200)">Order Now</a>
+        <h3>Spider-Verse Tapestry Beanie</h3>
+        <p>Handmade crochet tapestry beanie inspired by the Spider-Verse. Choose your favourite design below.</p>
+
+        <!-- DESIGN PICKER -->
+        <p class="color-label">Select a design</p>
+        <div class="design-picker">
+          <button class="design-btn" data-design="Spider-Gwen" data-price="220">
+            <span class="design-name">Spider-Gwen</span>
+            <span class="design-price">R220</span>
+          </button>
+          <button class="design-btn" data-design="Classic Spider-Man" data-price="250">
+            <span class="design-name">Classic Spider-Man</span>
+            <span class="design-price">R250</span>
+          </button>
+          <button class="design-btn" data-design="Miles Morales" data-price="250">
+            <span class="design-name">Miles Morales</span>
+            <span class="design-price">R250</span>
+          </button>
+          <button class="design-btn" data-design="Spider-Man 2099" data-price="270">
+            <span class="design-name">Spider-Man 2099</span>
+            <span class="design-price">R270</span>
+          </button>
+        </div>
+
+        <p class="spiderverse-price">
+          <strong id="spiderverse-price-display">Select a design</strong>
+        </p>
+
+        <a class="btn spiderverse-order-btn" id="spiderverse-order" href="#" aria-disabled="true">
+          Select a Design First
+        </a>
       </div>
     </div>
 
@@ -391,6 +418,36 @@
         const match = filter === 'all' || card.dataset.category === filter;
         card.classList.toggle('hidden', !match);
       });
+    });
+  });
+
+  // ── SPIDER-VERSE DESIGN PICKER ──────────────────────────────
+  const designBtns      = document.querySelectorAll('.design-btn');
+  const priceDisplay    = document.getElementById('spiderverse-price-display');
+  const orderBtn        = document.getElementById('spiderverse-order');
+
+  designBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Deselect all
+      designBtns.forEach(b => b.classList.remove('selected'));
+      // Select clicked
+      btn.classList.add('selected');
+
+      const design = btn.dataset.design;
+      const price  = btn.dataset.price;
+
+      // Update price display
+      priceDisplay.textContent = `R${price}`;
+
+      // Enable and update order button
+      orderBtn.setAttribute('aria-disabled', 'false');
+      orderBtn.textContent = 'Order Now';
+      orderBtn.style.background = '';
+      orderBtn.style.cursor = '';
+      orderBtn.style.pointerEvents = '';
+      orderBtn.href = `https://wa.me/27692396332?text=${encodeURIComponent(
+        `Hi! I want to order a Spider-Verse Tapestry Beanie 🕷️ — Design: ${design} (R${price})`
+      )}`;
     });
   });
 

@@ -645,6 +645,64 @@ header nav a.active { color: var(--pink); font-weight: 600; }
   line-height: 2.2;
 }
 
+/* ── SPIDER-VERSE DESIGN PICKER ── */
+.design-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.design-btn {
+  background: var(--bg);
+  border: 1.5px solid #e8cfc9;
+  border-radius: 10px;
+  padding: 10px 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.design-btn:hover {
+  border-color: var(--pink);
+  background: #fdf0ee;
+  transform: translateY(-1px);
+}
+
+.design-btn.selected {
+  border-color: var(--text);
+  background: var(--white);
+  box-shadow: 0 0 0 1.5px var(--text);
+}
+
+.design-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.design-price {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.design-btn.selected .design-price {
+  color: var(--pink);
+}
+
+.spiderverse-order-btn[aria-disabled="true"] {
+  background: #ccc;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* ── SCROLL ANIMATIONS ── */
 .fade-in {
   opacity: 0;
